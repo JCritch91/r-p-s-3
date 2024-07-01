@@ -1,37 +1,44 @@
-
+const rockButton = document.querySelector(".rock")
+const paperButton = document.querySelector(".paper")
+const scissorsButton = document.querySelector(".scissors")
+const selectionDisplay = document.querySelector(".selectionDisplay")
+const roundResultDisplay = document.querySelector(".roundResultDisplay")
+const roundScoreDisplay = document.querySelector(".roundScoreDisplay")
+const overallResultDisplay = document.querySelector(".overallResultDisplay")
 
 let humanScore = 0
 let computerScore = 0
-let humanSelection
+/* let humanSelection */
 let compSelection
 
 
-function playGame(){
-    for (let i =0; i<5; i++){
-    
+
+
+
+function playGame(humanChoice){
+
         function playRound(humanChoice, compChoice){
-        console.log(humanChoice)
-        console.log(compChoice)
 
-        humanChoice == compChoice? console.log("It's a Draw"): 
-        humanChoice == 'Rock' && compChoice == 'Paper'? (computerScore ++, console.log("You Lose")):
-        humanChoice == 'Paper' && compChoice == 'Scissors'? (computerScore ++, console.log("You Lose")):
-        humanChoice == 'Scissors' && compChoice == 'Rock'? (computerScore ++, console.log("You Lose")): (humanScore ++, console.log("You Win"))
+        selectionDisplay.textContent = "You Chose " + humanChoice + ", Computer Chose " + compChoice
 
-        console.log("Human Score = " + humanScore)
-        console.log("Computer Score = " + computerScore)
+        humanChoice == compChoice? roundResultDisplay.textContent = "It's a Draw": 
+        humanChoice == 'Rock' && compChoice == 'Paper'? (computerScore ++, roundResultDisplay.textContent = "You Lose"):
+        humanChoice == 'Paper' && compChoice == 'Scissors'? (computerScore ++, roundResultDisplay.textContent = "You Lose"):
+        humanChoice == 'Scissors' && compChoice == 'Rock'? (computerScore ++, roundResultDisplay.textContent = "You Lose"): (humanScore ++, roundResultDisplay.textContent = "You Win")
+
+        roundScoreDisplay.textContent = "Human Score = " + humanScore +" , Computer Score = " + computerScore
         }
 
         const compChoice = getCompChoice()
-        const humanChoice = getPlayerChoice()
+/*         const humanChoice = getPlayerChoice() */
 
 
 
-        function getPlayerChoice() {
+/*         function getPlayerChoice() {
             let selection = prompt()
             humanSelection = selection.substring(0,1).toUpperCase() + selection.substring(1).toLowerCase()
             return
-        }
+        } */
 
         function getCompChoice(){
             randomNumber = Math.floor(Math.random()*3)
@@ -52,12 +59,34 @@ function playGame(){
             return 
         }
 
-        playRound(humanSelection, compSelection)
-    }
-    computerScore>humanScore? console.log("Game Over. Compter Wins " + computerScore + "-" + humanScore):
-    humanScore>computerScore? console.log("Game Over You Win! " + humanScore + "-" + computerScore):
-    console.log("Game Over. It's a Draw " + humanScore + "-" + computerScore)
+        playRound(humanChoice, compSelection)
+
+        if (humanScore + computerScore == 5){
+            endResult()
+        }
+    
+
+}
+
+function endResult(){
+    computerScore>humanScore? overallResultDisplay.textContent = "Game Over. Compter Wins " + computerScore + "-" + humanScore:
+    humanScore>computerScore? overallResultDisplay.textContent =  "Game Over You Win! " + humanScore + "-" + computerScore:
+    overallResultDisplay.textContent = "Game Over. It's a Draw " + humanScore + "-" + computerScore
 }
 
 
-playGame()
+
+rockButton.addEventListener('click', () => {
+    playGame('Rock')
+    return
+})
+
+paperButton.addEventListener('click', () => {
+    playGame('Paper')
+    return
+})
+
+scissorsButton.addEventListener('click', () => {
+    playGame('Scissors')
+    return
+})
