@@ -1,0 +1,138 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 98vh;
+    background-color: black;
+}
+
+.header{
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    color: white;
+}
+
+h1,p{
+    margin: 0;
+}
+
+
+.boxContainer{
+    background-color: aliceblue;
+    margin-top: 3%;
+    min-height: 75%;
+    min-width: 75%;
+}
+
+.selectionDisplay{
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+}
+
+.roundScoreDisplay{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.roundResultDisplay{
+    margin-top: 2%;
+    text-align: center;
+    min-height: 40px;
+}
+
+.resultContainer{
+    gap: 20px;
+    padding: 6% 1% 6% 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6% 25%;
+}
+
+.rock{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296854_1280.png');
+}
+
+.paper{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296855_1280.png');
+}
+
+.scissors{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296853_1280.png');
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover
+{
+    transform: scale(1.5);
+    border-color: red;
+}
+
+.rock:active,
+.paper:active,
+.scissors:active,
+.reset{
+    transform: translateY(4px);
+}
+
+.footer{
+    display: flex;
+    margin-top: auto;
+    text-align: center;
+    color: white;
+    gap: 5px;
+}
+
+.gitButton{
+    height: 20px;
+    width: 20px;
+    border-radius:100px;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png');
+}
+
+.gitButton:hover{
+    animation: spin 5s linear infinite;
+    animation-duration: 1s; 
+    }
+
+    @keyframes spin{
+        100% { transform: rotate(360deg); }
+      }
+
+.reset{
+    font-size: large;
+    height: 80px;
+    width: 160px;
+    border-radius: 30px;
+}
+
+.reset:hover{
+    transform: scale(1.1);
+}
